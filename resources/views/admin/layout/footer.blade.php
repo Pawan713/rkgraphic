@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <a href="templateshub.net">RK Graphics</a>
+                    <a href="https://rkgraphicss.com/">RK Graphics</a>
                 </div>
                 {{-- <div class="col-md-6 col-sm-12 text-md-right">
                     <ul class="list-inline mb-0">

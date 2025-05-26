@@ -13,7 +13,7 @@
                     <div class="col-xl-2 col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Active School</h3>
+                                <h3 class="card-title">Active Cases</h3>
                             </div>
                             <div class="card-body">
                                 <h5 class="number mb-0 font-32 counter">31</h5>
@@ -24,7 +24,7 @@
                     <div class="col-xl-2 col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Active Student</h3>
+                                <h3 class="card-title">Pending Tasks</h3>
                             </div>
                             <div class="card-body">
                                 <h5 class="number mb-0 font-32 counter">245</h5>
@@ -340,29 +340,27 @@
                                         </thead>
                                         <tbody>
                                           @if($students)
-                                           @php $i=1; @endphp
                                            @foreach($students as $student)
                                             <tr>
-                                                <td>{{$i}}</td>
-                                                <td>{{ucwords($student->name)}}</td>
+                                                <td>#AD1245</td>
+                                                <td>{{$student->name}}</td>
                                                 <td>
                                                     <ul class="list-unstyled team-info sm margin-0 w150">
-                                                          @if ($student->photo)
-                                                          <li><img src="{{ asset('uploads/students/' . $student->photo) }}" alt="{{$student->photo}}"></li>
-                                                        @else
-                                                        <h1>No Photo</h1>
-                                                        @endif
-                                                        
+                                                        <li>
+                                                            {{-- <img src="assets/images/xs/avatar1.jpg" alt="Avatar"> --}}
+
+                                                             <img src="{{ asset('uploads/students/' . $student->photo) }}" alt="{{$student->photo}}">
+
+                                                        </li>
                                                         {{-- <li class="ml-2"><span>2+</span></li> --}}
                                                     </ul>
                                                 </td>
-                                                <td>{{ucwords($student->father_name)}}</td>
+                                                <td>{{$student->father_name}}</td>
                                                 <td>{{$student->class}}</td>
                                                 <td>{{$student->roll_no}}</td>
                                                 <td>{{$student->mobile}}</td>
                                                 <td><span class="tag tag-primary">Active</span></td>
                                             </tr>
-                                            @php $i++; @endphp
                                             @endforeach
                                             @endif
                                            

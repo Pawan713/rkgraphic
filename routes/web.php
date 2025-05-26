@@ -5,8 +5,6 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SchoolController;
-use App\Exports\UsersExport;
-use Maatwebsite\Excel\Facades\Excel;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,10 +29,12 @@ Route::get('/admin/school', [SchoolController::class, 'index'])->middleware('adm
 Route::post('/admin/school/add', [SchoolController::class, 'add_School'])->middleware('admin')->name('admin.school.add');
 
 Route::get('/admin/allstudent/{id}', [AdminAuthController::class, 'getAllStudent'])->middleware('admin')->name('admin.all.student');
+Route::get('/admin/singlestudent/{id}', [AdminAuthController::class, 'getSingleStudent'])->middleware('admin')->name('admin.single.student');
+
+Route::get('/admin/zipExport', [AdminAuthController::class, 'zipExport'])->middleware('admin')->name('admin.export.zip');
+Route::get('/admin/excelExport', [AdminAuthController::class, 'exportStudents'])->middleware('admin')->name('admin.export.excel');
 
 Route::get('/admin/logout', [AdminAuthController::class, 'adminLogout'])->name('admin.logout');
-
-
 
 
 Route::get('/user/login', [UserAuthController::class, 'showLoginForm'])->name('user.login');
@@ -66,10 +66,3 @@ Route::post('/user/logout', function () {
     Auth::logout();
     return redirect('/');
 })->name('user.logout');
-
-
-
-
-Route::get('/export-users', function () {
-    return Excel::download(new UsersExport, 'users.xlsx');
-});

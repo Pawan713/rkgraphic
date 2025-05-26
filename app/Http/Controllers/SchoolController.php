@@ -11,7 +11,7 @@ class SchoolController extends Controller
     
     public function index()
     {
-        $users=User::orderBy('id', 'DESC')->where('role','user')->get();
+        $users=User::where('role','user')->orderBy('id', 'DESC')->get();
         // return $users;
         return view('admin.school_view')->with('users',$users);
     }
@@ -19,7 +19,7 @@ class SchoolController extends Controller
 // Add New School 
     public function add_School(Request $request)
     {
-         
+
         
          $request->validate([
             'name' => 'required|string',
@@ -29,9 +29,7 @@ class SchoolController extends Controller
             'password' => 'required',
             'address' => 'required',
         ]);
-        
         // return $request;
-       
         User::create([
             'name' => $request->name,
             'email' => $request->email,

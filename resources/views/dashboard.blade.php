@@ -52,21 +52,21 @@
   <!-- Header -->
   {{-- <div class="header">
     <h5 class="mb-0">Dashboard</h5>
-    <span>Welcome, {{ ucwords(Auth::user()->name) }}</span>
+    <span>Welcome, {{ Auth::user()->name }}</span>
   </div> --}}
 
   <!-- Main Content -->
   <div class="main-content">
     <h1 style=" text-align: center;
     background: gray;
-    color: white">Welcome,{{ ucwords(Auth::user()->name) }}</h1>
+    color: white">Welcome {{auth()->user()->name}}</h1>
     <div class="dashboard-cards">
       <div class="card-box">
-        <div class="card-title">Total Students</div>
+        <div class="card-title">Total Users</div>
         <div class="fs-4 text-primary">152</div>
       </div>
       <div class="card-box">
-        <div class="card-title">Class</div>
+        <div class="card-title">Courses</div>
         <div class="fs-4 text-success">23</div>
       </div>
       <div class="card-box">
